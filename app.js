@@ -29,4 +29,4 @@ let getPokemon = async term => {
     document.querySelector('.type2').innerHTML = `${pokemon.types[1].type.name}`;
 }
 
-btn.addEventListener('click', () => getPokemon(keyword.value));
+btn.addEventListener('click', () => getPokemon(keyword.value.toLowerCase()));
