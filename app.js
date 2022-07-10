@@ -1,1 +1,16 @@
-console.log('Hello');
+let keyword = document.querySelector('#keyword');
+let btn = document.querySelector('#btn');
+
+let getPokemon = async term => {
+    let url = `https://pokeapi.co/api/v2/pokemon/${term}`;
+    let response = await fetch(url);
+
+    let pokemon = await response.json();
+
+    document.querySelector('img').setAttribute('src', `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`);
+    document.querySelector('.number').innerHTML = `#${pokemon.id.toString().padStart(3, '0')}`;
+    document.querySelector('.name').innerHTML = pokemon.name;
+    document.querySelector('.type').innerHTML = `Type: ${pokemon.types[0].type.name} / ${pokemon.types[1].type.name}`;
+}
+
+btn.addEventListener('click', () => getPokemon(keyword.value));
