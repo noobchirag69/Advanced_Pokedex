@@ -22,7 +22,7 @@ let getPokemon = async term => {
     let pokemon = await response.json();
     debugger
 
-    document.querySelector('img').setAttribute('src', `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`);
+    document.querySelector('img').setAttribute('src', `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`);
     document.querySelector('.number').innerHTML = `#${pokemon.id.toString().padStart(3, '0')}`;
     document.querySelector('.name').innerHTML = pokemon.name;
     document.querySelector('.type1').innerHTML = `${pokemon.types[0].type.name}`;
@@ -30,3 +30,9 @@ let getPokemon = async term => {
 }
 
 btn.addEventListener('click', () => getPokemon(keyword.value.toLowerCase()));
+
+keyword.addEventListener('keydown', e => {
+    if (e.keyCode == 13) {
+        getPokemon(keyword.value.toLowerCase());
+    }
+});

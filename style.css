@@ -62,9 +62,8 @@ button {
 }
 
 .pokemon .img-container img {
-    margin-top: 20px;
-    height: 250px;
-    width: 250px;
+    margin: 10px 0 10px 0;
+    width: 100%;
 }
 
 .pokemon .info {
